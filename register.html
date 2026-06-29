@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register · EventPortal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/welcome.css" />
+</head>
+
+<body>
+  <div class="auth-shell">
+    <div class="auth-card">
+      <h1>Create Account</h1>
+      <p>Join the College Event Management System.</p>
+      <form id="registerForm">
+        <div class="input-group mb-3">
+          <label for="name">Full Name</label>
+          <input id="name" type="text" class="glass-input" pattern="[A-Za-z\s]+" title="Only letters and spaces allowed"
+            placeholder="Enter your full name" required />
+        </div>
+        <div class="input-group mb-3">
+          <label for="email">Email Address</label>
+          <input id="email" type="email" class="glass-input" placeholder="you@campus.edu" required />
+        </div>
+        <div class="input-group mb-3" id="phone-group">
+          <label for="phone">Phone Number</label>
+          <input id="phone" type="tel" class="glass-input" placeholder="Enter your phone number" required />
+        </div>
+        <div class="input-group mb-3">
+          <label for="username">Username</label>
+          <input id="username" type="text" class="glass-input" autocomplete="off" placeholder="Choose a username"
+            required />
+        </div>
+        <div class="input-group mb-3">
+          <label for="password">Password</label>
+          <input id="password" type="password" class="glass-input" autocomplete="new-password" placeholder="••••••••"
+            required />
+        </div>
+        <div class="input-group mb-3">
+          <label for="role-select">Role</label>
+          <select id="role-select" class="glass-input modern-select" onchange="updateRoleFields()">
+            <option value="student">Student</option>
+            <option value="organizer">Organizer</option>
+          </select>
+        </div>
+
+        <!-- Registration Fields -->
+        <div id="register-fields">
+          <div id="student-only-fields" class="hidden">
+            <div class="input-group mb-2">
+              <label for="reg-branch">Branch</label>
+              <select id="reg-branch" class="glass-input">
+                <option value="BCA">BCA</option>
+                <option value="MCA">MCA</option>
+                <option value="BTECH">BTECH</option>
+                <option value="MTECH">MTECH</option>
+                <option value="BSC(CS)">BSC(CS)</option>
+                <option value="BTECH(AIML)">BTECH(AIML)</option>
+                <option value="BPT">BPT</option>
+                <option value="BSC(NURSING)">BSC(NURSING)</option>
+                <option value="MPT">MPT</option>
+                <option value="BDS">BDS</option>
+                <option value="MDS">MDS</option>
+                <option value="MBBS">MBBS</option>
+                <option value="BSC(ARICULTURE)">BSC(ARICULTURE)</option>
+                <option value="BBA">BBA</option>
+                <option value="MBA">MBA</option>
+              </select>
+            </div>
+            <div class="input-group mb-2">
+              <label for="reg-college">College</label>
+              <select id="reg-college" class="glass-input">
+                <option value="COLLEGE OF COMPUTER SCIENCE AND IT">COLLEGE OF COMPUTER SCIENCE AND IT</option>
+                <option value="COLLEGE OF MEDICAL SCIENCE">COLLEGE OF MEDICAL SCIENCE</option>
+                <option value="COLLEGE OF NURSING">COLLEGE OF NURSING</option>
+                <option value="COLLEGE OF DENTAL">COLLEGE OF DENTAL</option>
+                <option value="COLLEGE OF AGRICULTURE">COLLEGE OF AGRICULTURE</option>
+                <option value="COLLEGE OF MANAGEMENT">COLLEGE OF MANAGEMENT</option>
+                <option value="COLLEGE OF PHARMACY">COLLEGE OF PHARMACY</option>
+                <option value="COLLEGE OF FINE ART">COLLEGE OF FINE ART</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" onclick="handleAuth()" class="btn-primary w-100 mt-2">Register</button>
+      </form>
+      <div class="auth-foot">
+        Already have an account? <a href="login.html">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+
+</html>

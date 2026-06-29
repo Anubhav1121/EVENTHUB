@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard · Event Hub</title>
+    <!-- Fonts & Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body class="dashboard-body">
+
+    <div class="dashboard-container">
+
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <button class="sidebar-close" id="sidebar-close-btn" aria-label="Hide sidebar"
+                onclick="window.hideSidebar()">
+                &#10006;
+            </button>
+            <h2 style="font-weight: 800; letter-spacing: -0.02em;">Event Hub</h2>
+            <div class="user-info mb-3" id="sidebar-user">
+                <div class="sidebar-avatar" id="sidebar-avatar" aria-hidden="true"></div>
+                <div>
+                    <h4 id="sidebar-role" class="muted">Role</h4>
+                    <p id="sidebar-name" style="font-weight: 600;">User Name</p>
+                </div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <!-- Links dynamically rendered -->
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-nav">
+                <div style="display:flex; align-items:center; gap:12px">
+                    <button class="sidebar-toggle" id="menu-toggle" onclick="window.toggleSidebarMenu()"
+                        style="border:none; background:none; font-size:1.2rem; cursor:pointer;">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                </div>
+                <div class="user-profile">
+                    <button class="top-profile-button" type="button" onclick="navigateTo('Profile')"
+                        title="Open profile">
+                        <img id="top-profile-image" class="top-profile-image" alt="Profile avatar">
+                        <span id="top-username" style="font-weight: 500;">Welcome!</span>
+                    </button>
+                    <button class="logout-btn" onclick="window.confirmLogout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+
+                </div>
+            </header>
+
+
+
+            <section id="content-area">
+                <!-- Dynamic Content Loading -->
+            </section>
+        </main>
+
+    </div>
+
+    <!-- Live Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-toggle" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chat-box" id="chat-box">
+            <div class="chat-header">
+                <span>Campus Support Chat</span>
+                <i class="fas fa-times" onclick="toggleChat()" style="cursor:pointer;"></i>
+            </div>
+            <div class="chat-body" id="chat-messages">
+                <!-- Messages go here -->
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Type a message..."
+                    onkeypress="handleChatKeyPress(event)">
+                <button class="chat-send" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

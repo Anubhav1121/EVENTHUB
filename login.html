@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login · EventPortal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/welcome.css" />
+  <style>
+    .auth-foot {
+      text-align: center;
+      margin-top: 1.25rem;
+      color: #64748b;
+      font-size: 0.875rem;
+    }
+    .auth-foot a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .auth-foot a:hover { color: #1d4ed8; text-decoration: underline; }
+
+    .forgot-link-wrap {
+      text-align: right;
+      margin-top: -0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .forgot-link-wrap a {
+      color: #2563eb;
+      font-size: 0.83rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .forgot-link-wrap a:hover { color: #1d4ed8; text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+  <div class="auth-shell">
+    <div class="auth-card">
+      <h1>Welcome Back</h1>
+      <p>Log in to manage your events.</p>
+      <form id="loginForm">
+        <div class="input-group mb-3">
+          <label for="username">Username</label>
+          <input id="username" type="text" class="glass-input" autocomplete="off" placeholder="Enter your username"
+            required />
+        </div>
+        <div class="input-group mb-3">
+          <label for="password">Password</label>
+          <input id="password" type="password" class="glass-input" autocomplete="new-password" placeholder="••••••••"
+            required />
+        </div>
+        <div class="forgot-link-wrap">
+          <a href="forgot-password.html" id="forgotPasswordLink">Forgot Password?</a>
+        </div>
+        <div class="input-group mb-3">
+          <label for="role-select">Role</label>
+          <select id="role-select" class="glass-input modern-select">
+            <option value="student">Student</option>
+            <option value="organizer">Organizer</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary w-100">Login</button>
+      </form>
+      <div class="auth-foot">
+        No account? <a href="register.html">Create one here</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      // handleAuth is defined in auth.js
+      handleAuth();
+    });
+  </script>
+</body>
+
+</html>
